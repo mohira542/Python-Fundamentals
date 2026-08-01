@@ -1,0 +1,79 @@
+# Variant A answers
+student_list = [
+    "  john doe ",
+    "JANE SMITH",
+    "   ",
+    "alice wonderland",
+    "bOb rOsS  "
+]
+def format_roster(names):
+    cleaned_list=[name.strip().upper() for name in names if name.strip()]
+    return cleaned_list
+cleaned_roster = format_roster(student_list)
+print(cleaned_roster)
+
+
+
+# Variant B answers
+def fix_inventory_codes(codes):
+    standardized=[]
+    for code in raw_codes:
+       fixed_code= code.replace('-', '').replace(' ','')
+       upper_code=fixed_code.upper()
+       if len(upper_code)<3:
+         continue
+       standardized.append(upper_code)
+    return standardized
+    
+raw_codes = [
+    "abc-123",
+    "  X-99 ",
+    "prod 456",
+    "a-1",       # Too short after cleaning (becomes "A1")
+    "super-item"
+]
+fixed_codes = fix_inventory_codes(raw_codes)
+print(fixed_codes)
+
+
+
+# Variant C answers
+def  sanitized_filenames(files):
+    valid =  []
+    for file in files:
+        filename=file.strip().lower()
+        cleaned= filename.replace(' ', '_')
+        if  ".txt" in cleaned:
+          valid.append(cleaned)
+    return  valid
+
+uploads = [
+    "  My Resume.pdf ",  # Not a .txt file, skip
+    "Vacation Photo.JPG", # Not a .txt file, skip
+    "PROJECT specs.txt",
+    "   ",
+    "notes.txt"
+]
+safe_files = sanitized_filenames(uploads)
+print(safe_files)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
