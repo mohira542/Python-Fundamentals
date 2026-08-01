@@ -1,3 +1,4 @@
+
 def calculate_ticket_revenue(show_type, tickets_sold, time_slot):
     price = 0
     if show_type =="blukbuster":
