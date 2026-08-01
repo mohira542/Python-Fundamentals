@@ -1,3 +1,6 @@
+
+
+
 player_stats = [
     ('LeBron', 'Lakers', [30, 25, 35]),
     ('Curry', 'Warriors', [32, 28, 27]),
