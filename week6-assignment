@@ -37,3 +37,23 @@ districts, congested= analyze_traffic_flow("traffic_survey.txt")
 write_traffic_report(districts, congested)
 print(districts)
 print(congested)
+
+
+
+
+
+#MainSt,Downtown,450,100
+#Broadway,Downtown,300,50
+#OakAve,Suburbs,100,20
+#PineRd,Suburbs,50,10
+#Hwy101,Highway,800,400
+#Error,Line,Missing,Data
+#MarketSt,Downtown,500,200
+
+
+
+
+
+
+
+
