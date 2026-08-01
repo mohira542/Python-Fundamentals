@@ -1,0 +1,39 @@
+def analyze_traffic_flow(traffic_survey):
+    district_totals ={}  
+    congested= []
+    with open("traffic_survey.txt", "r") as file:
+        for line in file:
+            parts=line.strip()
+            parts=line.split(',')
+            if len(parts)!=4:
+                continue
+            print(parts)
+            # streetname, district, carcount, truckcount = parts
+            try:
+                street = parts[0]
+                district=parts[1]
+                cars= int(parts[2])
+                trucks = int(parts[3].strip())
+                total= cars + trucks
+            except (ValueError, IndexError):
+                print('something is wrong here.')
+                continue
+            district_totals[district]=district_totals.get(district, 0) + total
+            if total > 500:
+                congested.append((street, total))
+        return district_totals, congested    
+def write_traffic_report(district_totals, congested_streets):
+    with open("traffic_report.txt" ,"w") as outfile:
+        outfile.write("DISTRICT TRAFFIC VOLUME\n")
+        outfile.write("--------------------------\n")
+        for district, total in district_totals.items():
+            outfile.write(f"{district}: {total}\n")
+        outfile.write(f"\nCONGESTED STREETS (>500 vehicles)\n")
+        outfile.write("------------------------\n")
+        for street,total in congested_streets:
+            outfile.write(f"{street}: {total} vehicles\n") 
+
+districts, congested= analyze_traffic_flow("traffic_survey.txt")
+write_traffic_report(districts, congested)
+print(districts)
+print(congested)
